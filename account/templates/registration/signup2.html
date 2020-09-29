@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+
+<h1> hi casc</h1>
+<center>
+    <form method= 'POST'>
+        {% csrf_token %}
+        {{ form|crispy }}
+    <!-- {{ student_form }} -->
+    <button class='btn btn-danger' type='submit' value='Sign-UP'> SIGN UP 
+    </form>
+</center>

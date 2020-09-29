@@ -1,0 +1,30 @@
+{% extends 'language/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container pt-3">
+	<form method="POST">
+		<center>
+			{% csrf_token %}
+			<!--
+			<h3> here goes your post </h3>
+			<p> the title : </p> {{ frame_form.name }}
+			<p> the summary: </p> {{ frame_form.summary }}
+			<p> the description: </p> {{ frame_form.description | safe }}
+			<p> cats: </p> {{ frame_form.cat }}
+			<p> developed by the :</p> {{ frame_form.developed_by }}
+			<p> images: </p> {{ frame_form.image }}
+			<p> language involved : {{ frame_form.lang }} </p>
+			-->
+			{{ form.media }}
+			{{form | safe }}
+		
+			><button type='submit' class='btn btn-success'>Post</button>
+			<hr>
+			<hr>
+			<hr>
+			<hr>
+			<hr>
+		</center>	
+	</form>
+</div>
+{% endblock %}

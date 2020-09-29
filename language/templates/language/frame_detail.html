@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{frame_form.number }}-{{ frame_form.title }}
+{% endblock %}
+{% block content %}
+<div class='container-sm'>
+  <div class='row'>
+    <h1 class='display-3 text-primary-50 text-center'> {{ frame_form.title }} </h1>
+    <p class='lead text-md-right text-lg-right text-sm-right shadow-lg p-3 mb-5 bg-white rounded'>
+      {{ frame_form.summary }}
+    </p>
+    <div class='col-6 col-sm-3 text-md-right text-sm-right text-lg-right'>
+      {{frame_form.media }}
+      {{ frame_form.description }}چ
+      <sma
+      <p class="text-decoration-none font-italic ">{{ frame_form.developed_by }}</p>
+
+      <!-- BLOGGER SECTION -->
+      <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    نویسنده 
+  </button>
+  {% include "./home.html" with name="{{ frame_form.lang }}" %}
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+          <img src="{{frame_from.author.profile_image.path }}" class='rounded-circle float-right' id='profile_image'>
+            <a href='{{frame_form.author.get_absolute_url}}'>{{ frame_form.first_name }} {{frame-form.last_name }}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        {{ frame_from.author.bio }}
+        </div>
+        <div class="modal-footer">
+        <p class='btn badge-secondary'>  مهارت ها : {{ frame_form.author.lang_experties }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</div>
+
+
+
+
+
+
+<link rel="stylesheet" href="{% static 'language/css/code_default.css' %}">
+<script src='{% static "language/js/highlight.pack.js" %}'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

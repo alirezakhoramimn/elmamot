@@ -1,0 +1,73 @@
+/* Login Form*/
+.main-section{
+    margin: 0px auto;
+    margin-top: 130px;
+    padding: 0px;
+}
+.modal-content{
+    background-color: #3b4652;
+    opacity: .97;
+    padding: 40px 18px;
+    box-shadow: 0px 0px 3px #848484;
+}
+.form-group {
+    margin-bottom: 40px;
+}
+.form-group input{
+    height: 40px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 16px;
+    padding-left: 54px;
+}
+.form-group::before{
+    font-family: 'Font Awesome\ 5 free';
+    content: '\f007';
+    position: absolute;
+    font-size: 22px;
+    color: #555e60;
+    left: 28px;
+    padding-top: 4px;
+}
+.form-group:last-of-type::before{
+    content: '\f023';
+}
+.form-check{
+    margin:20px;
+}
+.form-check label{
+    color: #27c2a5;
+}
+button{
+    width: 40%;
+    margin: 5px 0px 25px;
+}
+.btn{
+    content: "\f2f6";
+    background-color: #27c2a5;
+    color: #fff;
+    font-size: 19px;
+    padding: 7px 14px;
+    border-radius: 5px;
+    border-bottom: 4px solid #219882;
+}
+.btn:hover , .btn:focus{
+    background-color: #25a890;
+    border-bottom: 4px solid #25a890;
+}
+.sign-up{
+    padding: 5px 0 5px;    
+}
+.sign-up a{
+    color: #2eb4bb;
+}
+.forgot{
+    padding: 5px 0 0;    
+}
+.forgot a{
+    color: #2eb4bb;
+}
+hr{
+    color: #171b20;
+    margin: 5px;
+}

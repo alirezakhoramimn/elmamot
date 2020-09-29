@@ -1,0 +1,22 @@
+            <!--
+            <ul class="list-unstyled components">
+                <p>{{ lang_form.name }}</p>
+                 {% for post in lang_form %}
+                <li>
+                    <a href="{% url post.get_absolute_url post.name post.slug  %}">{{post.number }}- {{ post.title }}</a>
+                </li>
+                {% endfor %}
+                
+                <li class="active">
+                	{% for u_name in u_frame_name %}
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ u_name }}</a>
+                  {% endfor %}
+	                    {% for jus_frame_post in all_frame_posts_for_a_framework  %}
+	                    <ul class="collapse list-unstyled" id="homeSubmenu">
+	                        <li>
+	                            <a href="{% url jus_frame_form.get_absolute_url jus_frame_form.lang  jus_frame_form.name jus_frame_form.slug %}">{{jus_frame_form.number}}-{{ jus_frame_post.title }}</a>
+	                        </li>
+	                    </ul>
+                      {% endfor %}
+                </li>
+                <!-- ########## HERE GOES THE ADD -->

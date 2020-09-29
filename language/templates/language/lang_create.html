@@ -1,0 +1,75 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+<hr><hr><hr>
+<div class="container pt-3 bg-dark text-white">
+	<form  method="POST" class='form-row'>
+		{% csrf_token %}
+
+			
+
+			<div class="form-group col-md-4">
+			<p> 
+			این چندمیته؟
+			{{form.number}}
+			</p>
+				<i class="fas fa-creative-commons-sampling   "> 
+					 چه زبونی   
+				</i>
+				{{ form.name }}
+				
+    		</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+				<i class="fas fa-creative-commons-sampling"> 
+					سرتیتر!
+				</i>
+				{{ form.title }}
+				<div class="invalid-tooltip">
+							 حتما اضافه کن عزیزکم 
+				</div>
+			</div>
+			<div class="form-group">
+				<i class="fas fa-creative-commons-sampling"> 
+					یک خلاصه از این متن!
+				</i>
+				{{ form.summary }}
+
+			</div>
+			<br>
+			<div class="col-md-4 mb-3">
+				<i class="fas fa-creative-commons-sampling"> 
+					ی(نیاز نیست هشتگ بزاریا )چن تا هشتگ
+				</i>
+				{{ form.tags }}  اینا: { </label>
+			
+			</div>
+			<br>
+			<br>
+			<div>
+                {{ form.media }}
+				{{ form.description | safe }}
+				<i class="fas fa-creative-commons-sampling"> 
+
+						اصل کار اینه. 
+						خود متن 
+					</i>
+				<br>
+			</div>
+			<br> <br>
+			</div>
+			<div class="form-group row">
+				<i class="fas fa-creative-commons-sampling"> 
+					لینک های خوبی که در این مورد داری
+				</i>
+				{{ form.developed_by }}</p>
+				<br>
+			</div>
+			<br><br><br>
+			<div class="col-auto my-5">
+			    <br>	<br><br><br>
+				<button class='btn btn btn-success btn-rounded' type='submit' value='Save'>save</button>
+			</div>
+	</form>
+</div>
+{% endblock %}

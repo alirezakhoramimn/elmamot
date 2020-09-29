@@ -1,0 +1,19 @@
+nav {
+    height: 80px;
+    color: var(--main-nav-color);
+
+	font-weight: 600;
+}
+
+footer
+{
+	margin: 0;
+	padding: 0;
+	color: #D9D9D9;
+	box-sizing: border-box;
+	font-family: 'poppins',sans-serif;
+	position: inherit;
+	bottom: 0px;
+	width: 100%;
+	background: #353a40
+}

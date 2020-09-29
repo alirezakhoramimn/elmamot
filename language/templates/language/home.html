@@ -1,0 +1,43 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+    
+     
+    {{ f }}
+    <br>
+    {% for la  in lang %}
+        <br>
+        {{ la.name }}
+
+    {% endfor %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
+        {% for lang in langs  %}
+        <div class="card card-cascade wider reverse mx-auto text-xl-left " style='color:rgba(115, 67, 87, 1)'>
+                <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <h3 class="card-title"><strong>{{ lang.name }}</strong></h3>
+                <!-- Title -->
+                <h4 class="card-title"><strong><a href='{% url "language:lang_detail" lang.name lang.number %}'>{{ lang.title }}</a></strong></h4>
+                <!-- Subtitle -->
+                <h6 class="font-weight-bold indigo-text py-2">{{ lang.author }}</h6>
+                <!-- Text -->
+                <p class="card-text text-justify text-md-left">
+                    {{ lang.summary }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+  </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+{% endblock %}

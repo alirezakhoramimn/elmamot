@@ -1,0 +1,10 @@
+{% extends './base.html' %}
+<h1> ALl </h1>
+{% block content %}
+    {% for post in langs %}
+        {{ post.title }}
+        {{ post.summary }}
+        <a class= 'btn btn-success' href='{% url "language:lang_detail" post.name post.slug %}'> See More? </a> 
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+{% for post in frame_post %}
+
+    <a href='{% url post.get_absolute_url post.lang  %}'> {{post.title }}</a>
+    {{ post.description }}
+
+{% endfor %}
+
+{% endblock %}

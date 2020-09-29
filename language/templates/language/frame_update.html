@@ -1,0 +1,15 @@
+{% extends './base.html' %}
+{% block title %}
+    Editing
+{% endblock %}
+
+{% block content %}
+<h1>ویرایش</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {{form | safe }}
+	
+    <button class="btn btn-info ml-2" type="submit">عوضش کن</button>
+</form>
+{% endblock %}

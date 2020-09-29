@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+
+  <title>
+    
+    {% block title %}
+
+    {% endblock %}
+
+  </title>
+     <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link href=   "{% static 'language/css/style.css' %}"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'lanuguage/css/base.css' %}" type="text/css">
+
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+  </head>
+
+<!-- 
+
+
+<p>Open from <time>10:00</time> to <time>21:00</time> every weekday.</p>
+
+<p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p> 
+-->
+<head>
+ <!-- Navigation -->
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#" marign-top : 10px>
+				<img src="photo_2020-09-20_22-08-50.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+				
+			</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="https://prozesh.ir">Prozesh<span class="sr-only">(current)</span></a>
+			  </li>
+				 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          اموزش ها
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="https://prozesh.ir/HTMl" style='color:#FF9900'>HTML</a>
+          <a class="dropdown-item" href="https://prozesh.ir/Css" style='color:#E32934'>CSS</a>
+          <a class="dropdown-item" href="https://prozesh.ir/Js" style='color:#FFCC00'>JS</a>
+          <a class="dropdown-item" href="https://prozesh.ir/python" style='color:#006699'>PYTHON</a>
+          <a class="dropdown-item" href="https://prozesh.ir/C#" style='color:#7B0099'>C#</a>
+          <a class="dropdown-item" href="https://prozesh.ir/C++" style='color:#146EB4'>C++</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+			  <li class="nav-item">
+            {% if user.is_authenticated %}
+                <p class='text' style='color:#40ff00'> salam mohandes {{ user.first_name }}</p>
+
+                <a href="{% url 'account:logout' %}"><button class='btn btn-danger' > Logout</button></a>
+            {% else %}
+                <p> lotfan bejoin </p>
+                <a href="{% url 'account:signup' %}"><button class='btn btn-success centered'>Sign Up</a>
+
+                <a href="{% url 'account:login' %}"><button class='btn btn-info'>Log In</button></a>
+            `{% endif %}
+			  <li class="nav-item">
+
+			  </li>
+			</ul>
+			<form class="form-inline mt-2 mt-md-0" action="{% url 'language:search_results' %}"method="get">>
+			  <input class="form-control mr-sm-2" type="search" placeholder="جستجو" aria-label="Search" name="q">
+			  <button class="btn btn-success" style='color:#3522e2' type="submit">جستجو</button>
+			</form>
+		  </div>
+    </nav>
+
+          {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+               <li class="nav-item avatar">
+               {% if user.blogger_or_student == 'blogger' %}
+                  <a class="nav-link p-0" href="{% url 'account:profile_blogger' user.username %}">
+                {% else %}
+                  <a class="nav-link p-0" href="{% url 'account:profile_student' user.username %}">
+                {% endif %}
+                <img src="{{ user.profile_image.url }}" class="rounded-circle z-depth-0"
+                     alt="avatar image" height="35">
+                 </a>
+               </li>
+          {% endif %} 
+      </ul>
+     </div>
+    </nav>
+  </header>
+</head>
+<body>    
+  {% block content %}
+
+  {% endblock %}
+  <!-- Footer -->
+    <footer>
+      <div class="main-content text-right">
+       <ul class="list-inline text-center">
+            <li class="list-inline-item">        >
+      <div class="left box ">
+        <h2>درباره ما</h2>
+        <div class="content ">
+          <p> matn darmord prozesh </p>
+        <div class="social">
+          <button type="button" class="btn btn-facebook btn-icon-only rounded-circle">
+            <span class="btn-inner--icon"><i class="fab fa-facebook"><a href='https://www.facebook.com/prozesh'></a></i></span>
+          </button>
+          <button type="button" class="btn btn-twitter btn-icon-only rounded-circle">
+            <span class="btn-inner--icon"><i class="fab fa-twitter"><a href='https://www.twiiter.com/prozesh'></a></i></span>
+          </button>
+          <button type="button" class="btn btn-instagram btn-icon-only rounded-circle">
+            <span class="btn-inner--icon"><i class="fab fa-instagram"><a href='https://www.instagram.com/prozesh'></a></i></span>
+          </button>
+          <button type="button" class="btn btn-youtube btn-icon-only rounded-circle">
+            <span class="btn-inner--icon"><i class="fab fa-youtube"><a href='https://www.youtube.com/prozesh'></a></i></span>
+          </button>
+        </div>
+        </div>
+      </div>
+      
+      <div class="center box">
+        <h2>آدرس</h2>
+          <div class="phone">
+            <span class="fas fa-phone-alt"></span>
+            <span class="text">+98-9102726356</span>
+          </div>
+          
+          <div class="place">
+            <span class="fas fa-envelope"></span>
+            <span class="text">prozhesh.ir@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </footer>
+  
+
+</body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,29 @@
+<img src='{{ blogger.user_blogger.profile_image.path }}' alt='{{ blogger.user_blogger.first_name}} {{ blogger.user_blogger.last_name}}'>
+<p>{{ blogger.user_blogger.first_name}} {{ blogger.user_blogger.last_name}}</p>
+<P>USERNAME : {{ blogger.user_blogger.username }}</P>
+
+<p> {{ blogger.user_blogger.bio }} {{ blogger.experties }} </p>
+
+<p> majmoei az post ha dar bare zaban barnamenevisi </p>
+{% for lang in langs %}
+	<h5> zabone ; {{ lang.name }} </h5>
+	<p> titlesh: {{lang.title}}</p>
+	<p> summariesh : {{ lang.summary }} </p>
+
+{% endfor %}
+
+<p> majmoei az post ha dar bare frameworke zabane barnamenevisi </p>
+{% for lang in langs %}
+	<h5> zabone  {{ frame.lname }} </h5>
+	<h6> frameworke {{ frame.name }} </h6>
+
+
+	<p> titlesh: {{frame.title}}</p>
+	<p> summariesh : {{ frame.summary }} </p>
+{% endfor %}
+
+
+<p> Email for tamas; {{ user.email }} </p>
+
+
+

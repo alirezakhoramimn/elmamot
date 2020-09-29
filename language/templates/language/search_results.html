@@ -1,0 +1,29 @@
+{% extends "./base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+
+	{% if query %}
+		<h1>Posts containing "{{ query }}"</h1>
+		<h3>
+		{% with results_lang.count as total_results %}
+		یافت شد! {{ total_results }} نتیجه{{ total_results|pluralize }}
+		{% endwith %}
+		</h3>
+		{% for lang in results_lang %}
+			<h4><a href="{% url lang.get_absolute_url lang.name lang.slug %}">{{ lang.title }}</a></h4>
+			{{ lang.summary|truncatewords_html:5 }}
+			{% empty %}
+			<p>هیج نتیجه ای از سرچ شما یافت نشد</p>
+		{% endfor %}
+		<h2 class='btn-bg-info'> نتایج حاصل از فریمورک ها!</h2>
+		{% for frame in results_frame %}
+			<h4><a href="{% url lang.get_absolute_url frame.lang frame.name frame.slug %}">{{ frame.title }}</a></h4>
+			{{frame.media}}
+			{{ frame.summary|truncatewords_html:5 }}
+			
+			{% empty %}
+			<p>هیج نتیجه ای در فریمورک ها از سرچ شما یافت نشد</p>
+		
+		{% endfor %}
+	{% endif %}
+{% endblock %}

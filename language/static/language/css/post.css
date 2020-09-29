@@ -1,0 +1,11 @@
+.body {
+    background-image: url("img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+#profile_image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
