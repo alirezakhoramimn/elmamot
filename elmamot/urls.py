@@ -20,6 +20,9 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from language.views import home as home_lang
 from language.sitemaps import LanguageSitemap,FrameWorkSitemap
+
+from graphene_django.views import GraphQLView
+
 sitemaps = {
        'languages': LanguageSitemap(),
        'frameworks': FrameWorkSitemap(),
@@ -36,7 +39,10 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap'),
 
-    path('question/', include('quiz.urls'))
+    path('question/', include('quiz.urls')),
+
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
+
     #path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
 
