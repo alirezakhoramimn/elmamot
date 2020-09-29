@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'user_visit',
     'ckeditor',
     'ckeditor_uploader',
+    # Graphene 
+    'graphene_django',
     # Forms
     'crispy_forms',
     # History
@@ -298,3 +300,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = True 
+    
+    
+    
+# GRAPHQL 
+
+GRAPHENE = {
+    'SCHEMA': 'elmamot.schema.schema',
+
+}
