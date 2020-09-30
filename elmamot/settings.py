@@ -279,7 +279,7 @@ CKEDITOR_CONFIGS = {
         'height': 300,
         'width': 500,
         # Add Code Block Plug-ins
-        'extraPlugins': ','.join(['codesnippet']),
+        'extraPlugins': ','.join(['codesnippet',]),
     }
 }
 sentry_sdk.init(

@@ -125,7 +125,6 @@ class FrameWork(Post):
 
 
 class Comment(models.Model):
-	post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
 	body = RichTextUploadingField(config_name='comments_bro')
 	created_on = models.DateTimeField(auto_now_add=True)
 	active = models.BooleanField(default=False)
@@ -134,14 +133,13 @@ class Comment(models.Model):
 
 	class Meta:
 		ordering = ['created_on']
+		abstract = True 
 
 	def __str__(self):
 		return 'Comment {} by {}'.format(self.body, self.author.username)
 
-	def get_absolute_url(self):
-		if post.is_framework:
-			return reverse("language:lang_detail", args=[self.name])
-		
-		else: 
-			return reverse("language:frame_detail", args=[self.lang, self.name])
+class CommentLanguage(Comment):	
+	post = models.ForeignKey(Language,on_delete=models.CASCADE,related_name='comments')
 
+class CommentFrameWork(Comment):	
+	post = models.ForeignKey(FrameWork,on_delete=models.CASCADE,related_name='comments')

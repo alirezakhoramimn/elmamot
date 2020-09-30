@@ -1,5 +1,5 @@
 from django import forms
-from .models import Language, FrameWork, Comment 
+from .models import Language, FrameWork, CommentFrameWork,CommentLanguage 
 from account.models import Blogger 
 from ckeditor.widgets import CKEditorWidget
 
@@ -84,13 +84,19 @@ class FrameCreateForm(forms.ModelForm):
 		fields = ('title','number','summary', 'developed_by', 'description','name','lang')
 
 
-class CommentForm(forms.ModelForm):
+class CommentFrameWorkForm(forms.ModelForm):
 	body = forms.CharField(max_length=600,required=True, widget=CKEditorWidget(config_name='comments_bro',attrs={'class':'form-control'}))
 
 	class Meta:
-		model = Comment
+		model = CommentFrameWork
 		fields = ('body',)
 
+class CommentLanguageForm(forms.ModelForm):
+	body = forms.CharField(max_length=600,required=True, widget=CKEditorWidget(config_name='comments_bro',attrs={'class':'form-control'}))
+
+	class Meta:
+		model = CommentLanguage
+		fields = ('body',)
 
 class SearchForm(forms.ModelForm):
 	query = forms.CharField(max_length=60)

@@ -11,11 +11,11 @@ from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 # MDOELS
-from .models import Language, FrameWork, Post
+from .models import Language, FrameWork, Post, CommentFrameWork, CommentLanguage
 from account.models import Blogger
 from taggit.models import Tag
 # FORMS
-from .forms  import  FrameCreateForm, LangCreateForm, CommentForm
+from .forms  import  FrameCreateForm, LangCreateForm, CommentLanguageForm,CommentFrameWorkForm
 
 # SEARCHING WITH POSTGRESQL
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
@@ -188,7 +188,7 @@ def frame_post_detail(request,lang,name,number):
 	new_comment = None
 	if request.method == 'POST':
 		# get all the frameworks name
-		comment_form = CommentForm(data=request.POST)
+		comment_form = CommentFrameWorkForm(data=request.POST)
 		if comment_form.is_valid() and request.user.is_authenticated:
 
 		# Create Comment object but don't save to database yet
@@ -199,7 +199,7 @@ def frame_post_detail(request,lang,name,number):
 			# Save the comment to the database
 			new_comment.save()
 	else:
-		comment_form = CommentForm()
+		comment_form = CommentFrameWorkForm()
 
 
 	context = {
@@ -241,7 +241,7 @@ def lang_post_detail(request,name,number):
 # Comment posted
 	if request.method == 'POST':
 
-		comment_form = CommentForm(data=request.POST)
+		comment_form = CommentLanguageForm(data=request.POST)
 		if comment_form.is_valid() and request.user.is_authenticated:
 
 			# Create Comment object but don't save to database yet
@@ -256,7 +256,7 @@ def lang_post_detail(request,name,number):
 			messages.error(request, 'خطایی رخ داده!')
 			redirect('langauge:lang_post_detail')
 	else:
-		comment_form = CommentForm()
+		comment_form = CommentLanguageForm()
 
 	context = {
 		'langs': langs,
