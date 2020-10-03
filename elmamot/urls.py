@@ -20,13 +20,20 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from language.views import home as home_lang
 from language.sitemaps import LanguageSitemap,FrameWorkSitemap
-
+from rest_framework import routers
 from graphene_django.views import GraphQLView
+
+router = routers.DefaultRouter()
+router.register(r'rest/languages', views.UserViewSet)
+router.register(r'rest/frameworks', views.GroupViewSet)
 
 sitemaps = {
        'languages': LanguageSitemap(),
        'frameworks': FrameWorkSitemap(),
     }
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),

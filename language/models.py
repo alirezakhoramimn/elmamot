@@ -85,7 +85,7 @@ PRO_CHOICES = (
 		('SQLServer','SQLServer'),
 		('linux', 'linux'),
 		('git','git'),
-		('ducker', 'ducker'), 
+		('docker', 'docker'), 
 )
  
 class Language(Post):

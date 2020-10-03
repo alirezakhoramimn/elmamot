@@ -19,7 +19,10 @@ from .forms  import  FrameCreateForm, LangCreateForm, CommentLanguageForm,Commen
 
 # SEARCHING WITH POSTGRESQL
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-
+### REST APi
+from rest_framework import viewsets
+from rest_framework import permissions
+from .serializers import LanguageSerializer, FrameWorkSerializer
 
 # Create your views here.
 
@@ -204,7 +207,6 @@ def frame_post_detail(request,lang,name,number):
 
 	context = {
 	'frames': frames,
-	'langs' : langs,
 	'framework_names' : framework_names,
 	'frame_work_specific': frame_work_specific,
 	'comments':comments,
@@ -303,3 +305,36 @@ def post_search(request):
 def all(request):
 	langs = Post.objects.all().order_by('created')
 	return render(request, 'language/all.html', {'langs':langs})
+
+
+
+
+
+
+
+
+
+
+
+
+
+################# API #################
+
+class LanguageViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Language.objects.all().order_by('-created_at')
+    serializer_class = LanguageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+
+class FrameWorkViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = FrameWork.objects.all().order_by('-created_at')
+    serializer_class = FrameWorkSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
