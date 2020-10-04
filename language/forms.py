@@ -1,7 +1,7 @@
 from django import forms
 from .models import Language, FrameWork, CommentFrameWork,CommentLanguage 
 from account.models import Blogger 
-from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 PRO_CHOICES = (
 		('HTML5', 'HTML'),
@@ -31,7 +31,7 @@ class LangCreateForm(forms.ModelForm):
 	
 	name = forms.ChoiceField(widget=forms.Select(attrs={'class':'form-control '}),choices=PRO_CHOICES)
 	
-	description = forms.CharField(label='man babatam ',required=True,widget=CKEditorWidget())
+	description = forms.CharField(label='man babatam ',required=True,widget=CKEditorUploadingWidget())
 	
 	title =forms.CharField(required=True,max_length=100,widget=forms.TextInput(  
 		attrs={
@@ -68,7 +68,7 @@ class FrameCreateForm(forms.ModelForm):
 	name = forms.ChoiceField(widget=forms.Select(attrs={'class':'form-control'}),choices=PRO_CHOICES)
 	
 
-	description = forms.CharField(required=True,widget=CKEditorWidget())
+	description = forms.CharField(required=True,widget=CKEditorUploadingWidget())
 	
 	title =forms.CharField(required=True,max_length=100,widget=forms.TextInput())
 

@@ -33,7 +33,6 @@ class MyUser(AbstractUser):
 	profile_image = models.ImageField(upload_to=user_dir_path,blank=True, default=f"{settings.MEDIA_ROOT}/uploads/images/default.jpg")		
 	blogger_or_student = models.CharField(max_length=25, blank=False, default='blogger', choices=ROLE_CHOICES)
 
-	 
 	def get_full_name(self):
 		'''
 		Returns the first_name plus the last_name, with a space in between.
@@ -46,12 +45,6 @@ class MyUser(AbstractUser):
 		Returns the short name for the user.
 		'''
 		return self.first_name
-
-	def email_user(self, subject, message, from_email=None, **kwargs):
-		'''
-		Sends an email to this User.
-		'''
-		send_mail(subject, message, from_email, [self.email], **kwargs) 
 		
 	def __str__(self):
 		return self.email
@@ -61,6 +54,8 @@ class MyUser(AbstractUser):
 	def create_blogger_or_student(sender, instance, created, **kwargs):
 		if created:
 			if instance.blogger_or_student == 'blogger':
+				staff = instance.is_staff
+				MyUser.objects.update(staff=True)
 				Blogger.objects.create(user_blogger=instance)
 			if instance.blogger_or_student == 'student':
 				Student.objects.create(user_student=instance)

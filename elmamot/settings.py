@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'graphene_django',
     # Forms
     'crispy_forms',
+    # Rest 
+    'rest_framework',
     # History
     #'simple_history',
     # Tag
@@ -308,4 +310,15 @@ if not DEBUG:
 GRAPHENE = {
     'SCHEMA': 'elmamot.schema.schema',
 
+}
+
+
+
+# DRF #
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }

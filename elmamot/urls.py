@@ -22,10 +22,10 @@ from language.views import home as home_lang
 from language.sitemaps import LanguageSitemap,FrameWorkSitemap
 from rest_framework import routers
 from graphene_django.views import GraphQLView
-
+import language.views as lang_views 
 router = routers.DefaultRouter()
-router.register(r'rest/languages', views.UserViewSet)
-router.register(r'rest/frameworks', views.GroupViewSet)
+router.register(r'languages', lang_views.LanguageViewSet)
+router.register(r'frameworks', lang_views.FrameWorkViewSet)
 
 sitemaps = {
        'languages': LanguageSitemap(),
@@ -49,9 +49,9 @@ urlpatterns = [
     path('question/', include('quiz.urls')),
 
     path('graphql/', GraphQLView.as_view(graphiql=True)),
-
-    #path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    # Rest 
+    path('rest/', include('rest_framework.urls')),
 ]
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
