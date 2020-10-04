@@ -20,7 +20,12 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from language.views import home as home_lang
 from language.sitemaps import LanguageSitemap,FrameWorkSitemap
+<<<<<<< HEAD
 from rest_framework import routers
+=======
+
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+>>>>>>> 677b20f59146d8d0ae020ad6e985d1bc0cad7ef2
 from graphene_django.views import GraphQLView
 import language.views as lang_views 
 router = routers.DefaultRouter()
@@ -48,9 +53,15 @@ urlpatterns = [
 
     path('question/', include('quiz.urls')),
 
+<<<<<<< HEAD
     path('graphql/', GraphQLView.as_view(graphiql=True)),
     # Rest 
     path('rest/', include('rest_framework.urls')),
+=======
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+
+    #path('', TemplateView.as_view(template_name='home.html'), name='home'),
+>>>>>>> 677b20f59146d8d0ae020ad6e985d1bc0cad7ef2
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

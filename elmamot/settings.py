@@ -261,8 +261,9 @@ CKEDITOR_CONFIGS = {
     
 
     'default': {
-        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
-        #'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        'toolbar': 'full',
+       'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        
         'height': 400,
         'width': '100%', 
        # 'filebrowserWindowHeight': 725,
@@ -309,6 +310,9 @@ if not DEBUG:
 
 GRAPHENE = {
     'SCHEMA': 'elmamot.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 
 }
 
