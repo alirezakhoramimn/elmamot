@@ -24,9 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.environ.get('SECRET_DJANGO_KEY')
-SECRET_KEY= 'w^c8b45mzcz9-51&3)-&2m9_3r%3ickj@cj-jycu18i5de21m9' 
-# SECURITY WARNING: don't run with debug turned on in production!
+#SECRET_KEY = os.environ.get('SECRET_DJANGO_KEY'
+ # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
 ALLOWED_HOSTS = ['prozesh.ir', '127.0.0.1']
@@ -148,8 +147,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'prozeshi_prozesh',
         'USER': 'prozeshi_alireza',
-        #'PASSWORD':os.environ.get('SECRET_DJANGO_DB_KEY'),
-        'PASSWORD':'74dbb30e4cb906bd4f04c5e6d63a6a39dceadfba87b5eb09863d3ef113d1d36e',
+        'PASSWORD':os.environ.get('SECRET_DJANGO_DB_KEY'),
         'HOST':'localhost',
         'PORT':5432
     }
@@ -180,9 +178,6 @@ LOGOUT_URL = 'langauge:home'
 
 #### EMIAL STUFF
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'prozesh.ir@gmail.com '
-EMAIL_HOST_PASSWORD = '74dbb30e4cb906bd4f04c5e6d63a6a39dceadfba87b5eb09863d3ef113d1d36e'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
